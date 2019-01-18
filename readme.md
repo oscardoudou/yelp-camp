@@ -76,3 +76,19 @@ var Cat = mongoose.model("Cat", catSchema)
 * install and config moogoose
 * setup campground model(setup the campground schema and then compile it to a singular model, db will automatically create a collection with plural from)
 * use campground model inside of our routes!(the modeld just create give us a bunch of method we could use inside js, specifically inside of route to replace those hardcoded array related stuff)
+
+# show page
+RESTFUL ROUTES
+name     url         verb       desc.
+==========================================
+INDEX   /dogs       GET         Display a list of all dogs
+NEW     /dogs/new   GET         Displays form to make a new dog
+CREATE  /dogs       POST        Add new dog to db
+SHOW    /dogs/:id   GET         Shows info about one dog
+* review the RESTful routes so far
+  1. get /campgrounds
+  2. post /campgrounds
+  3. get /campgrounds/new
+* add description attribute to our campground model
+* show db.collection.drop()
+* add a show route as well as a templete(Model.findById())
