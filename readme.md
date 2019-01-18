@@ -44,3 +44,35 @@ you can reload the page after each modification, unlike app.js no need to restar
 # style navbar and form
 * add navbar to all templates(add it to header.ejs)
 * style the new campground form(form-control, form-group, btn-block)
+ 
+# mongo intro
+* make sure run ./mongo in ~(where data folder resides) to let mongo deamon running
+* mongo shell is better for debug and practice
+* help 
+* showdbs use
+* C: db.dog.insert() where db is database we're using, dogs is the collection we are creating, insert() is trying to add some data into dog
+* R: find()
+* U: update() with {$set:{,}}
+* D: remove()
+ 
+# mongoose
+* odm(object data mapper)
+* Interact with a Mongo db using mongoose(all previous interaction with campgrounds array now replaced by interaction with mongodb campgrounds collection)
+* make us easier to interact with mongo
+```
+mongoose.connect("mongodb://localhost:27017/cat_app",{useNewUrlParser: true})
+var catSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    temperament: String
+})
+var Cat = mongoose.model("Cat", catSchema)
+```
+* a way for us to write js interact with db, could be treated as js layer on top of mongodb
+* model name by conventio should start with capital letter 
+* workflow: install mongoose, connect db, schema, interact with db
+
+# add mongoose
+* install and config moogoose
+* setup campground model(setup the campground schema and then compile it to a singular model, db will automatically create a collection with plural from)
+* use campground model inside of our routes!(the modeld just create give us a bunch of method we could use inside js, specifically inside of route to replace those hardcoded array related stuff)
