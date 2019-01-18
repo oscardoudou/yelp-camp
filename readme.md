@@ -28,3 +28,16 @@ eg. 1.when new object the latter name is the var has actual value, while the fir
 /campgrounds.new is where show the form
 /campgrounds as post is where to hit after we submit the form
 /campgrounds as get is where to redirect after post(we create newcampground, and add it campgrounds) done
+
+# styling campgrounds page
+you can reload the page after each modification, unlike app.js no need to restart server
+* header
+** leave space on page left right: make whole thing except header and footer inside a container
+** make h1 and add link inside jumbotron, change link to button make it seperate line using <p>
+** leave space in side jumbotron on left and right, recursive make it a container
+* grid
+* make each campground shown properly even shrink page using col-md-3(12 total so 4 in a row) inside row
+* using thumbnail wrap name and image content, class caption wrap name 
+* style="display:flex; flex-wrap: wrap;" should fix grid messup caused by different height
+* remember not bring any extra div it would mess up the benifit flex bring before, also please use chrome see the effect, safari would expect some werid behavior
+* 
