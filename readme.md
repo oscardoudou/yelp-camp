@@ -92,3 +92,8 @@ SHOW    /dogs/:id   GET         Shows info about one dog
 * add description attribute to our campground model
 * show db.collection.drop()
 * add a show route as well as a templete(Model.findById())
+
+# Refactor Mongoose Code
+* Create a models directory
+* Use moduel.exports
+* Require everything correctly
