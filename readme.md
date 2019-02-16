@@ -103,5 +103,48 @@ SHOW    /dogs/:id   GET         Shows info about one dog
 * Run the seeds file every time the server starts
 
 # Add the Comment model!
+workflow: create comments.js, define commentSchema, compile and export model, make two table works separate as wish(add comments array to campground), 
+improve show route(populate comment array) so inside the campground object we retrieve is not just id, finally modify template to reflect comment 
 * Make "cannot find module './models/comment'" errors go away(make new comment, associat with campground, reflect in db)
 * Display comments on campground show page(working on show routes)
+
+# Comment New/Create 
+* Learn nested routes(comment dependent on campground)
+
+RESTFUL ROUTES
+name     url                                verb       desc.
+==========================================
+INDEX   /campgrounds                        GET         Display a list of all campgrounds
+NEW     /campgrounds/new                    GET         Displays form to make a new campgrounds
+CREATE  /campgrounds                        POST        Add new campgrounds to db
+SHOW    /campgrounds/:id                    GET         Shows info about one campgrounds
+
+NEW     /campgrounds/:id/comments/new       GET         Displays form to make a new comments for specific campground
+CREATE  /campgrounds/:id/comments           POST        Add new campgrounds to specific campground to db
+
+* Add the comment new and create route
+* Add the new comment form
+
+logic:
+both new and create need look up campground first. Once done with look up, new always continue with rendering the form, while create always involve create the object, then push it into related model and save.
+Final step of create need redirect back to object/model's show page
+work flow:
+(make new work first, leave it after, then work on create route. manually test how new work, add button jumping to form later after create done. always finish core logic first)
+0. add new.ejs for comment, need split the view dir into two half. Also need change partials/ header footer path in some ejs
+1. since comment associate to campground, u need pass campground to get campground._id in new.ejs so that you could make correct action )
+2. group property of comment so easy pass the whole comment object in app.js
+3. redirect in create also need specify id, no ejs syntax <%= %> needed here
+4. add button jumping to form in show.ejs, u need specify campground._id as well, exact same as new.ejs'action which proceed to create
+
+
+
+
+
+
+
+
+
+
+
+
+
