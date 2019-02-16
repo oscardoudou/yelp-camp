@@ -73,7 +73,7 @@ var Cat = mongoose.model("Cat", catSchema)
 * workflow: install mongoose, connect db, schema, interact with db
 
 # add mongoose
-* install and config moogoose
+* install and config mongoose
 * setup campground model(setup the campground schema and then compile it to a singular model, db will automatically create a collection with plural from)
 * use campground model inside of our routes!(the modeld just create give us a bunch of method we could use inside js, specifically inside of route to replace those hardcoded array related stuff)
 
@@ -97,3 +97,11 @@ SHOW    /dogs/:id   GET         Shows info about one dog
 * Create a models directory
 * Use moduel.exports
 * Require everything correctly
+
+# Add Seeds File
+* Add a seeds.js file
+* Run the seeds file every time the server starts
+
+# Add the Comment model!
+* Make "cannot find module './models/comment'" errors go away(make new comment, associat with campground, reflect in db)
+* Display comments on campground show page(working on show routes)
