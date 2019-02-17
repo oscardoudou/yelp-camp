@@ -150,6 +150,12 @@ to finally connect the css, include the href of css file relative to the public 
 * Install all package needed for auth
 * Define User model
 
+# Auth Pt.2 Register
+* Configure Passport
+* Add register routes
+* Add register template
+
+
 
 
 

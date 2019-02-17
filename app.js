@@ -13,12 +13,27 @@ mongoose.connect("mongodb://localhost/yelp_camp",{useNewUrlParser: true})
 app.use(bodyPaser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"))
-
 seedDB();
+
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "Landing job in Google and Cisco",
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+//to use authenticate method, have to have the pkg passportLocalMongoose in User.
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get("/",function(req,res){
     res.render("landing")
 })
+//==========================
+//CAMPGROUNDS ROUTES
+//==========================
 //INDEX - show all campgrounds        
 app.get("/campgrounds",function(req,res){
     //Get all campgrounds from DB
@@ -119,9 +134,29 @@ app.post("/campgrounds/:id/comments", function(req, res) {
             })
         }
     })
-    
-    
-    
+})
+
+//========================
+//AUTH ROUTES
+//========================
+
+//show register form
+app.get("/register",function(req, res) {
+    res.render("register")
+})
+
+//handle sign up logic
+app.post("/register",function(req, res) {
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err,user){
+        if(err){
+            console.log(err);
+            return res.redirect("/register")
+        }
+        passport.authenticate("local")(req, res, function(){
+            res.redirect("/campgrounds")
+        })
+    })
 })
 
 app.listen(process.env.PORT, process.env.IP, function(){
