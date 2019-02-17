@@ -20,19 +20,24 @@ router.get("/",function(req,res){
 })
 
 //CREATE - add new campgrounds to db
-router.post("/", function(req,res){
+router.post("/",isLoggedIn, function(req,res){
     //get data from form and add to campgrounds array
     var name = req.body.name
     var image = req.body.image
     var description = req.body.description
-    var newCampground = {name: name, image: image, description: description}
-    //Creata a new campground and save to db
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
+    var newCampground = {name: name, image: image, description: description, author: author}
+    //Creata a new campground and save to db, newCampground is the one you pass, and campground is what db return
     Campground.create(newCampground,function(err,campground){
         if(err){
             console.log(err)
         }else{
             //redirect back to campgrounds page
             //most important: we dont need to manually push, when redirect it will retrieve newly created one as well
+            console.log(campground)
             res.redirect("/campgrounds")
         }
     })
@@ -42,7 +47,7 @@ router.post("/", function(req,res){
 })
 
 //NEW - display form to create new campground
-router.get("/new",function(req,res){
+router.get("/new",isLoggedIn,function(req,res){
     res.render("campgrounds/new")
 })
 
@@ -60,6 +65,14 @@ router.get("/:id", function(req,res){
     })
     
 })
+
+//middleware
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 //not necessary to be named as router, just convention
 module.exports = router;

@@ -180,7 +180,9 @@ workflow:
 3.After done with schema modification, go ahead to actually save comments in new fashion
 dont forgot to remove author field in comments/new.js and update how print author in campgrounds/show.js 
 
-
+# User <-> Campgrounds
+* Prevent an unauthenticated user from creating a campground
+* Save username+id to newly created campground
 
 
 
