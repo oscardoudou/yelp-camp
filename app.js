@@ -159,6 +159,20 @@ app.post("/register",function(req, res) {
     })
 })
 
+// show login form
+app.get("/login", function(req, res) {
+    res.render("login")
+})
+
+// handle login logic
+app.post("/login", passport.authenticate("local", 
+    {
+        successRedirect: "/campgrounds",
+        failureRedirect: "/login"
+    }),function(req,res){
+    //this callback really do nothing, just aware authenticate is a middleware
+})
+
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started")
 })

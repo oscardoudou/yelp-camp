@@ -155,6 +155,10 @@ to finally connect the css, include the href of css file relative to the public 
 * Add register routes
 * Add register template
 
+# Auth Pt.3 Login
+* Add login routes
+* Add login template
+
 
 
 
