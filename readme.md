@@ -163,7 +163,10 @@ to finally connect the css, include the href of css file relative to the public 
 * Add logout route
 * Prevent user from adding a comment if not signed in
 * Add links to navbar
+
+# Auth Pt. 5 Show/Hide Links
 * Show/hide auth links correctly
+takeout: use req.user of passport. res.local combine with middleware, nice way to dry code
 
 
 

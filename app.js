@@ -24,9 +24,15 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 //to use authenticate method, have to have the pkg passportLocalMongoose in User.
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()) );
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+//our middleware (will run for every single route)
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    //this line is mandatory!
+    next();
+})
 
 app.get("/",function(req,res){
     res.render("landing")
