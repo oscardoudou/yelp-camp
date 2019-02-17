@@ -136,6 +136,11 @@ work flow:
 3. redirect in create also need specify id, no ejs syntax <%= %> needed here
 4. add button jumping to form in show.ejs, u need specify campground._id as well, exact same as new.ejs'action which proceed to create
 
+# Style show page
+* Add sidebar to show page
+col-mid-3 for sidebar rest of the 9 for thumbnail, use two div inside one row to arrange sierbar and thumbnail's relative position
+* Display comments nicely
+
 
 
 

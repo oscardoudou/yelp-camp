@@ -6,17 +6,17 @@ var data = [
     {
         name: "Granite Hill", 
         image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg", 
-        description: "This is a huge granite hill, no bath water only beautiful granite!"
+        description: "Lorem ipsum dolor sit amet, duo eros fabulas an, eu dicit labores nam, ei facilisi petentium eos. Nonumes veritus est no, id ius wisi detracto. Aeterno gloriatur consequuntur ea sea, per te laudem mentitum. Te quo justo vidisse fierent, audiam laboramus urbanitas in vix, elit tota scriptorem et usu. Vix quando fastidii gloriatur in."
     },
     {
         name: "Yosemite National Park", 
         image: "https://previews.dropbox.com/p/thumb/AAViFcReJPcnFtHEs80QexUgg9mFWkdBn99CuKkDdOx04ugtsYja5CNwvHeRwmflqAPVRBm50rQQKr8xF_AiN1EzzhdduBxI3VhQ_L4BzdmSTNwrIR5UGgZIRlQEdwj8L-ivtCDcPI9dcHwXFL6nYixlFh55jc5fH5C6pflJ0s_AXZirHqy1CAyI7LFrqgNSLpLEkBP8kQRThMAk_QKM0mNKHL0BX5KACss8eESDZhOhQeGErwjI-4cwxR24LxjOeYg/p.jpeg?size_mode=5", 
-        description: "Really snowy, remember bring your gortex boots"
+        description: "Lorem ipsum dolor sit amet, duo eros fabulas an, eu dicit labores nam, ei facilisi petentium eos. Nonumes veritus est no, id ius wisi detracto. Aeterno gloriatur consequuntur ea sea, per te laudem mentitum. Te quo justo vidisse fierent, audiam laboramus urbanitas in vix, elit tota scriptorem et usu. Vix quando fastidii gloriatur in."
     },
     {
         name: "Yosemite National Park", 
         image: "https://previews.dropbox.com/p/thumb/AAViFcReJPcnFtHEs80QexUgg9mFWkdBn99CuKkDdOx04ugtsYja5CNwvHeRwmflqAPVRBm50rQQKr8xF_AiN1EzzhdduBxI3VhQ_L4BzdmSTNwrIR5UGgZIRlQEdwj8L-ivtCDcPI9dcHwXFL6nYixlFh55jc5fH5C6pflJ0s_AXZirHqy1CAyI7LFrqgNSLpLEkBP8kQRThMAk_QKM0mNKHL0BX5KACss8eESDZhOhQeGErwjI-4cwxR24LxjOeYg/p.jpeg?size_mode=5", 
-        description: "Really snowy, remember bring your gortex boots"
+        description: "Lorem ipsum dolor sit amet, duo eros fabulas an, eu dicit labores nam, ei facilisi petentium eos. Nonumes veritus est no, id ius wisi detracto. Aeterno gloriatur consequuntur ea sea, per te laudem mentitum. Te quo justo vidisse fierent, audiam laboramus urbanitas in vix, elit tota scriptorem et usu. Vix quando fastidii gloriatur in."
     }
     ]
 function seedDB(){
