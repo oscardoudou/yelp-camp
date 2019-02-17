@@ -97,7 +97,7 @@ app.get("/campgrounds/:id", function(req,res){
 // COMMENTS ROUTES
 // ========================
 //NEW display form to add comment to campground
-app.get("/campgrounds/:id/comments/new", function(req, res) {
+app.get("/campgrounds/:id/comments/new",isLoggedIn, function(req, res) {
     //find the campground by id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
@@ -110,7 +110,7 @@ app.get("/campgrounds/:id/comments/new", function(req, res) {
 })
 
 //CREATE add new comment to db
-app.post("/campgrounds/:id/comments", function(req, res) {
+app.post("/campgrounds/:id/comments", isLoggedIn,function(req, res) {
     //1.lookup campground using id
     Campground.findById(req.params.id, function(err, campground) {
         if(err){
@@ -172,6 +172,19 @@ app.post("/login", passport.authenticate("local",
     }),function(req,res){
     //this callback really do nothing, just aware authenticate is a middleware
 })
+
+// logout logic
+app.get("/logout", function(req, res){
+    req.logout();
+    res.redirect("/campgrounds");
+});
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started")

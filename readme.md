@@ -159,6 +159,11 @@ to finally connect the css, include the href of css file relative to the public 
 * Add login routes
 * Add login template
 
+# Auth Pt.4 Logout/Navbar
+* Add logout route
+* Prevent user from adding a comment if not signed in
+* Add links to navbar
+* Show/hide auth links correctly
 
 
 
