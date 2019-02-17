@@ -9,3 +9,7 @@
 .caption-full{
     padding: 9px;
 }
+
+#delete-form{
+    display: inline;
+}

@@ -190,5 +190,7 @@ dont forgot to remove author field in comments/new.js and update how print autho
 * Add link to edit page
 * Add update Routes
 
-
+# Delete campgrounds
+* Add destory route
+* Add delete button
 
