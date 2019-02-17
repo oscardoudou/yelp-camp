@@ -168,7 +168,8 @@ to finally connect the css, include the href of css file relative to the public 
 * Show/hide auth links correctly
 takeout: use req.user of passport. res.local combine with middleware, nice way to dry code
 
-
+# Refactor the Routes
+* Use express router to reorganize all routes
 
 
 
