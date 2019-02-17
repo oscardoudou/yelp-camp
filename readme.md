@@ -141,6 +141,10 @@ work flow:
 col-mid-3 for sidebar rest of the 9 for thumbnail, use two div inside one row to arrange sierbar and thumbnail's relative position
 * Display comments nicely
 
+logic:
+first css in the project: main.css inside public inside stylesheets, the front end js will also reside in this public folder as well
+to actually use that pulic directory. u have to in app.js to tell express to serve that directory, using __dirname to avoid unexpected location
+to finally connect the css, include the href of css file relative to the public directory path you served in partials/header.ejs
 
 
 
