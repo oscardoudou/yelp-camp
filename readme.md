@@ -184,7 +184,11 @@ dont forgot to remove author field in comments/new.js and update how print autho
 * Prevent an unauthenticated user from creating a campground
 * Save username+id to newly created campground
 
-
+# Edit Campgrounds
+* Add method-override
+* Add edit route for campgrounds
+* Add link to edit page
+* Add update Routes
 
 
 
