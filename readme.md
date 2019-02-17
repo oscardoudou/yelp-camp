@@ -146,6 +146,10 @@ first css in the project: main.css inside public inside stylesheets, the front e
 to actually use that pulic directory. u have to in app.js to tell express to serve that directory, using __dirname to avoid unexpected location
 to finally connect the css, include the href of css file relative to the public directory path you served in partials/header.ejs
 
+# Auth Pt. 1 Add User Model
+* Install all package needed for auth
+* Define User model
+
 
 
 
