@@ -194,3 +194,14 @@ dont forgot to remove author field in comments/new.js and update how print autho
 * Add destory route
 * Add delete button
 
+# Authorization
+* User can only edit his/her campgrounds
+* User can only delete his/her campgrounds
+* Hide/Show edit and delete buttons(trivial)
+
+workflow: define our middleware for checking Ownership before three route which involvs campgrounds ownership(create new wont ownership until campground created, so basically only these 3)
+middleware logic authenticate first then authorize, as long as not the owner redirect("back")
+hide the button for edit and delete, using similar trick used in middleware, namely compare campground.author.id whether equals current user, only difference is 
+in route we have access to both req.user and currentUser while in template you only have access to currentUser, so in template is like: campground.author.id.equals(currentuser._id)
+but either case the id in user is inherent string, the id in campground is actually mongoose ObjectID we extend to associate user and campground.
+
