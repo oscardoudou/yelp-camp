@@ -229,3 +229,5 @@ test delete route work need a delete form so far, also we need user?_method=Dele
 * User can only edit his/her own comment
 * User can only delete his/her own comment
 * Hide/show edit and delete button
+
+# Refactor middleware
