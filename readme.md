@@ -194,7 +194,7 @@ dont forgot to remove author field in comments/new.js and update how print autho
 * Add destory route
 * Add delete button
 
-# Authorization
+# Authorization 1 for campgrounds
 * User can only edit his/her campgrounds
 * User can only delete his/her campgrounds
 * Hide/Show edit and delete buttons(trivial)
@@ -224,3 +224,8 @@ findByIdAndUpdate take 3 parameter, distinguish different id in params elegantly
 /campgrounds/:id/comments/:comment_id
 ```
 test delete route work need a delete form so far, also we need user?_method=Delete to override the disguised method=post
+
+# Authorization 2 for comments
+* User can only edit his/her own comment
+* User can only delete his/her own comment
+* Hide/show edit and delete button
