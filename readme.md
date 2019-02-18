@@ -205,3 +205,13 @@ hide the button for edit and delete, using similar trick used in middleware, nam
 in route we have access to both req.user and currentUser while in template you only have access to currentUser, so in template is like: campground.author.id.equals(currentuser._id)
 but either case the id in user is inherent string, the id in campground is actually mongoose ObjectID we extend to associate user and campground.
 
+# Edit Comment
+* Add edit route for comment
+* Add edit button
+* Add update route
+comment routes would be more nested, but thanks to we require the commentRoutes in app.js
+```
+/campgrounds/:id/new
+/campgrounds/:id/comments/:comment_id/new
+```
+findByIdAndUpdate take 3 parameter, distinguish different id in params elegantly
