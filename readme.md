@@ -215,3 +215,12 @@ comment routes would be more nested, but thanks to we require the commentRoutes 
 /campgrounds/:id/comments/:comment_id/new
 ```
 findByIdAndUpdate take 3 parameter, distinguish different id in params elegantly
+
+# Delete Comment
+* Add delete route for comment
+* Add delete button
+```
+/campgrounds/:id
+/campgrounds/:id/comments/:comment_id
+```
+test delete route work need a delete form so far, also we need user?_method=Delete to override the disguised method=post
