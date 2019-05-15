@@ -1,0 +1,13 @@
+# develop machine 
+name: dev-vm
+vm: 
+  ip: 192.168.1.100
+tools:
+  - ansible
+lang:
+  - nodejs9
+services:
+  - docker
+packages:
+  - apt:
+    - git

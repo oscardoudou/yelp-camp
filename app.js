@@ -24,7 +24,7 @@ app.use(methodOverride("_method"));
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Landing job in Google and Cisco",
+    secret: "Landing job",
     resave: false,
     saveUninitialized: false
 }))

@@ -231,3 +231,5 @@ test delete route work need a delete form so far, also we need user?_method=Dele
 * Hide/show edit and delete button
 
 # Refactor middleware
+
+# develop locallly in vm 
