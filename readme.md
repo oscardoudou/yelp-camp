@@ -46,7 +46,7 @@ you can reload the page after each modification, unlike app.js no need to restar
 * style the new campground form(form-control, form-group, btn-block)
  
 # mongo intro
-* make sure run ./mongo in ~(where data folder resides) to let mongo deamon running
+* make sure run ./mongo in ~(where data folder resides) to let mongo daemon running
 * mongo shell is better for debug and practice
 * help 
 * showdbs use
@@ -232,4 +232,31 @@ test delete route work need a delete form so far, also we need user?_method=Dele
 
 # Refactor middleware
 
-# develop locallly in vm 
+## develop locallly in vm 
+add baker.yml 
+## install mongo on dev vm
+* verify which ubuntu release your vm is `lsb_release -dc`
+* The mongodb package provided by Ubuntu is not maintained by MongoDB Inc. and conflicts with themongodb-org package. To check if Ubuntu’s mongodb package is installed on the system, run
+` sudo apt list --installed | grep mongodb`
+warning just mean not cli stable, the command is indeed executed
+* [this link](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) mainly guide you how to install mongodb on linux, but also give detail explanation of which step meaning. 
+## connect mongodb on dev vm
+You can connect to MongoDB with the mongoose.connect() method.
+`mongoose.connect('mongodb://localhost/myapp');`
+
+This is the minimum needed to connect the myapp database running locally on the default port (27017)
+## trouble met when run app on dev vm
+1. VM doesn't support symlink in sync folder, have to run app in other place in VM
+2. VM ip in baker.yml is 192.168.1.100
+    ENV PORT=3000, IP=127.0.0.1
+    could `curl localhost:3000/` in VM, but visit 192.168.1.100:3000 or : 8080 doesn't work
+3. change to bridge wont able to ssh, why?
+* workaround ENV IP=0.0.0.0, 
+* add port forwarding in virtualbox setting 
+then could hit vm's ip on host machine
+
+| protocol |  host ip  | host port | guest ip | guest port| 
+|----------|-----------|-----------|----------|-----------|
+| tcp      |           |   8080    |          | 3000      |
+
+to reach `192.168.1.100:3000` in vm, we just hit `127.0.0.1:8080` on host machine browser
