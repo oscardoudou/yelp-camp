@@ -260,3 +260,22 @@ then could hit vm's ip on host machine
 | tcp      |           |   8080    |          | 3000      |
 
 to reach `192.168.1.100:3000` in vm, we just hit `127.0.0.1:8080` on host machine browser
+
+## learning curve been through, switch strategy from developing on local linux VM(baker/vagrant) to developing on local machine(OSX)
+1. don't know why current baker file can't preinstall node docker ansible on VM, it is possible to write script to install all of them, but it
+doesn't make sense to keep using baker any more, since the advantage to use it is one line in baker yml would install node or docker, now 
+it lost this feature somehow, plus we need docker-compose as well, which is seperate from docker
+2. try generic vagrant, spend lots of time figuring out difference between provisioner and provider. Now I know we should use provisoner since we are still using VM not docker. But we only have provisoner for ansible and docker, no provisioner for docker-compose. At this point write a script to install docker-compose is not hard, it is just again if we wrote script to achieve this, why we use vagrant.
+3. rather than run docker on VM, I try to make docker run directly on my mac . Although former one does have attracting advantage, one most promising pros is the development environment would work on all machine as long as you could virtualize a VM. 
+
+ps: port forwarding of guest VM to host mache is one big take-out from those failed trial as well as bridge/nat mode and funny bug found towards our router
+
+## run multiple container via docker-compose.yml (really time consuming experiment)
+1. after reading the tutorial people wrote based on some simple app. I tried to applied those changes to my existe campground app
+2. service sequence in docker-compose file matter if no `- depends` exist in docker-compose.yml
+3. but those sequence only indicate start sequence, doesn't guarantee the first start one ready by the time second start
+4. company's database is always there, there is no trouble waiting database ready to connect. But since our database is running from a container just spinned up, you have to make sure database container ready to connect before your web app trying to connect, otherwise you got connection refused error. 
+5. sometimes you got unable to unlink mongo-27017.sock, don't really now how to solve it. try to add command argument in docker-compose to delete /tmp/mongo-27017.sock, but it say no such file. 
+6. try add wait script to check connection ready. container built from node and mongod image, doesn't even have a netstat command! replace the last stmt in dockerfile with a script just never for me. Last time microservice, I fail to substitute the npm start with a script either. Pretty much stuck with npm start.
+7. finally figure out need a waiting before mongoose.connect instead of app.listen
+8. pure settimeout doesn't work, need await async

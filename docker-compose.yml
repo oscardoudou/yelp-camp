@@ -1,0 +1,26 @@
+version: "2"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes: 
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+
+  app:
+    container_name: app
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    # what the hell does restart: always does? can I force it restart on some condition: like encounter connectino refused error
+    # restart: always
+    # can enviroment here overwrite the one set in dockerfile?
+    # environment:
+    #   - IP=mongo
+    #   - PORT-3000
+    # don't know what command in docker-compose for, cant it execute before build ? 
+    # command: ./wait.sh

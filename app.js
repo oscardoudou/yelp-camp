@@ -14,8 +14,15 @@ var express         = require("express"),
 var commentRoutes       = require("./routes/comments"),
     campgroundsRoutes   = require("./routes/campgrounds"),
     indexRoutes          = require("./routes/index")
-
-mongoose.connect("mongodb://localhost/yelp_camp",{useNewUrlParser: true})
+//pure setTimeout doesn't work, still got connect refuse. connect part just ignore the statement sequence and 
+//setTimeout(function(){mongoose.connect("mongodb://mongo:27017/yelp_camp",{useNewUrlParser: true})},20000)
+//have to use async await
+async function connect(){
+    console.log("connecting....")
+    await new Promise(done => setTimeout(done, 20000));
+    mongoose.connect("mongodb://mongo:27017/yelp_camp",{useNewUrlParser: true})
+}
+connect();
 app.use(bodyPaser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"))
@@ -47,4 +54,6 @@ app.use("/campgrounds/:id/comments",commentRoutes)
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started")
+    console.log(process.env.IP)
+    console.log(process.env.PORT)
 })
