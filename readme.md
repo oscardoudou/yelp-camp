@@ -251,6 +251,7 @@ This is the minimum needed to connect the myapp database running locally on the 
     ENV PORT=3000, IP=127.0.0.1
     could `curl localhost:3000/` in VM, but visit 192.168.1.100:3000 or : 8080 doesn't work
 3. change to bridge wont able to ssh, why?
+    because original 2nd adapter is host-only, used for host-only network. If you log in your vm via GUI, you could verify that you still have access to internet which is provided by (basic)NAT. But since you switch 2nd adapter from host-only to bridge, host can't see VM. Although I think it should work, probably need further configure, simply switch mode won't work.
 * workaround ENV IP=0.0.0.0, 
 * add port forwarding in virtualbox setting 
 then could hit vm's ip on host machine
